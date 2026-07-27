@@ -1,0 +1,32 @@
+name: Unit tests
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        os: windows-latest
+    
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    # Yes we have to explictly install pytest. In a "real" example this could be included in a 
+    # requirement.txt or environment.yml to setup your environment
+    - name: Install PyTest
+      run: python -m pip install pytest
+    # Now run the tests
+    - name: Test with pytest
+      run: pytest
