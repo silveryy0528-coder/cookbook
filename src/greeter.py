@@ -1,3 +1,5 @@
+"""Small module to greet people in multiple colors, from Alan Turing"""
+
 import colorama
 
 
