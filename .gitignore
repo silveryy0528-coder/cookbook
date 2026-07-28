@@ -2,3 +2,5 @@
 .venv_cb
 data
 *__pycache__*
+build*
+dist*
