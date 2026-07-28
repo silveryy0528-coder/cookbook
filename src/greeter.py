@@ -3,11 +3,7 @@
 import colorama
 
 
-def greet(
-        personal: str,
-        family: str,
-        title: str = "",
-        polite: bool = False):
+def greet(personal: str, family: str, title: str = "", polite: bool = False):
     """
     Prints a welcome message in multiple colors.
     """

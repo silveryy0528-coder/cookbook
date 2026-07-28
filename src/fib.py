@@ -1,15 +1,16 @@
-'''
+"""
 Simple module to compute the Fibonacci number of a non-negative integer.
-'''
+"""
 
 
 def fib(x):
-    '''
+    """
     Compute the Fibonacci number of a non-negative integer x.
-    '''
+    """
     if x % 1 != 0 or x < 0:
-        raise NotImplementedError('fib only defined on non-negative integers.')
+        raise NotImplementedError("fib only defined on non-negative integers.")
     cache = {}
+
     def fib_inner(x):
         nonlocal cache
         if x in cache:
@@ -21,4 +22,5 @@ def fib(x):
         val = fib_inner(x - 1) + fib_inner(x - 2)
         cache[x] = val
         return val
+
     return fib_inner(x)
